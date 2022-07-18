@@ -1,0 +1,8 @@
+.link {
+  align-self: end;
+  cursor: pointer;
+
+  & a {
+    color: var(--primary-color);
+  }
+}

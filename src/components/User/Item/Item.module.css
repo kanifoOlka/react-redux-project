@@ -1,0 +1,10 @@
+.item {
+  padding: 10px;
+  background-color: #F3F3F3;
+  border-radius: 8px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=Item.module.css.map */

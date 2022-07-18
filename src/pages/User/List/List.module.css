@@ -1,0 +1,13 @@
+.item {
+  margin-bottom: 17px;
+}
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.summary {
+  padding: 10px 0;
+  text-align: right;
+}
+
+/*# sourceMappingURL=List.module.css.map */

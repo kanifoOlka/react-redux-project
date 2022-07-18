@@ -1,0 +1,9 @@
+.link {
+  align-self: end;
+  cursor: pointer;
+}
+.link a {
+  color: var(--primary-color);
+}
+
+/*# sourceMappingURL=InfoLink.module.css.map */

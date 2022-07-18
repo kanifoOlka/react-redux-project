@@ -1,0 +1,18 @@
+.button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: #FFFFFF;
+
+  &:disabled {
+    background-color: #AFAFAF;
+  }
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+}

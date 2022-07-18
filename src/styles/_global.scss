@@ -1,0 +1,22 @@
+html {
+  font-family: var(--font-family, sans-serif);
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.main {
+  padding: 20px 30px;
+  width: 100%;
+  max-width: 480px;
+  display: block;
+}
