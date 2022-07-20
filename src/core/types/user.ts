@@ -1,5 +1,5 @@
-import {Address} from "./Address";
-import {Company} from "./Company";
+import {Address} from "./address";
+import {Company} from "./company";
 
 export type User = {
     id: number;

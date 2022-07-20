@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Item.module.css';
-import {User} from "../../../core/types/User";
+import {User} from "../../../core/types/user";
 import InfoGroup from "./components/InfoGroup/InfoGroup";
 import InfoLink from "./components/InfoLink/InfoLink";
 

@@ -1,4 +1,4 @@
-import {Geo} from "./Geo";
+import {Geo} from "./geo";
 
 export type Address = {
     street: string;

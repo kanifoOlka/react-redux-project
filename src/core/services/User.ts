@@ -1,22 +1,28 @@
-import axios from "axios";
-import {User} from "../types/User";
+import {User} from "../types/user";
+import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 
-const instance = axios.create({
-    baseURL: 'http://jsonplaceholder.typicode.com/users/'
-});
+export const userAPI = createApi({
+    reducerPath: 'userAPI',
+    baseQuery: fetchBaseQuery({baseUrl: 'http://jsonplaceholder.typicode.com'}),
+    endpoints: (builder) => ({
+        fetchAllUsers: builder.query<User[], number>({
+            query: (limit: number = 10, page: number = 1) => ({
+                url: '/users',
+                params: {
+                    _limit: limit,
+                    _page: page
+                }
+            })
+        }),
+        fetchUserById: builder.query({
+            query: userId => ({
+                url: `/users/${userId}`
+            })
+        })
+    })
+})
 
-export default class UserService {
-    static async getAll(limit = 10, page = 1) {
-        return await instance.get<User[]>('', {
-            params: {
-                _limit: limit,
-                _page: page
-            }
-        }).then(response => response.data)
-    }
-
-    static async getById(id: string) {
-        return await instance.get<User>(id)
-            .then(response => response.data);
-    }
-}
+export const {
+    useFetchAllUsersQuery,
+    useFetchUserByIdQuery
+} = userAPI;

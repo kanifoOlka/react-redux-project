@@ -1,40 +1,55 @@
-import React, {useEffect, useState} from 'react';
+import React, {useMemo} from 'react';
 import styles from './List.module.css';
-import UserService from "../../../core/services/User";
-import {User} from "../../../core/types/User";
 import Title from "../../../components/UI/Title/Title";
 import Loader from "../../../components/UI/Loader/Loader";
 import UsersList from "../../../components/User/List/List";
-import {useFetching} from "../../../core/hooks/useFetching";
 import Error from "../../../components/UI/Error/Error";
+import {useFetchAllUsersQuery} from "../../../core/services/User";
+import {useAppSelector} from "../../../core/hooks/redux";
 
 const UserList: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([]);
-    const [fetchUsers, isUsersLoading, getUsersError] = useFetching(async () => {
-        const usersData = await UserService.getAll();
-        setUsers(usersData);
-    })
+    const {
+        data: users = [],
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useFetchAllUsersQuery(10);
 
-    useEffect(() => {
-        fetchUsers();
-    }, []);
+    const sort = useAppSelector(state => state.sortReduser.sort);
+
+    const sortedUsers = useMemo(() => {
+        const sortedUsers = users.slice();
+        if (sort) {
+            if (sort === "city") {
+                sortedUsers.sort((a, b) => a.address.city.localeCompare(b.address.city));
+            }
+            if (sort === "company") {
+                sortedUsers.sort((a, b) => a.company.name.localeCompare(b.company.name));
+            }
+        }
+        return sortedUsers
+    }, [users, sort])
+
+    let content
+
+    if (isLoading) {
+        content = <Loader/>
+    } else if (isSuccess) {
+        content = <>
+            <UsersList users={sortedUsers}/>
+            <p className={styles.summary}>
+                Найдено {users.length} пользователей
+            </p>
+        </>
+    } else if (isError) {
+        content = <Error message={error.toString()}/>
+    }
 
     return (
         <>
             <Title text={"Список пользователей"}/>
-            {getUsersError && <Error message={getUsersError}/>}
-            {(() => {
-                if (isUsersLoading) {
-                    return <Loader/>
-                } else {
-                    return <>
-                        <UsersList users={users}/>
-                        <p className={styles.summary}>
-                            Найдено {users.length} пользователей
-                        </p>
-                    </>
-                }
-            })()}
+            {content}
         </>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {User} from "../../../core/types/User";
+import {User} from "../../../core/types/user";
 import styles from "../../../pages/User/List/List.module.css";
 import UserItem from "../Item/Item";
 

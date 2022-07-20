@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoItem from "../InfoItem/InfoItem";
-import {User} from "../../../../../core/types/User";
+import {User} from "../../../../../core/types/user";
 
 interface InfoGroupProps {
     user: User;
