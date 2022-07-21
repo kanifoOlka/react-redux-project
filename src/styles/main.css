@@ -3,6 +3,10 @@
   --font-family: "Roboto", sans-serif;
   --primary-color: #4B51EF;
   --secondary-color: #52CF4F;
+  --red-color: #D91313;
+  --white-color: #FFFFFF;
+  --grey-color: #BDBDBD;
+  --light-grey-color: #D8D8D8;
 }
 
 * {
@@ -77,7 +81,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
 
-html {
+html, body {
+  width: 100%;
+  overflow-x: auto;
   font-family: var(--font-family, sans-serif);
   font-size: 12px;
 }

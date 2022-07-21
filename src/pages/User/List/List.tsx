@@ -12,8 +12,7 @@ const UserList: React.FC = () => {
         data: users = [],
         isLoading,
         isSuccess,
-        isError,
-        error
+        isError
     } = useFetchAllUsersQuery(10);
 
     const sort = useAppSelector(state => state.sortReduser.sort);
@@ -43,7 +42,7 @@ const UserList: React.FC = () => {
             </p>
         </>
     } else if (isError) {
-        content = <Error message={error.toString()}/>
+        content = <Error message={"Не удалось загрузить пользователей"}/>
     }
 
     return (

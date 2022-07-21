@@ -2,12 +2,11 @@
   grid-row: 1;
   grid-column: 1/2;
   padding: 35px 20px;
-  background-color: #BDBDBD;
+  background-color: var(--grey-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  min-width: 152px;
 }
 
 /*# sourceMappingURL=Sidebar.module.css.map */
