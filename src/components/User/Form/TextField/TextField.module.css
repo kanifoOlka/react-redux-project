@@ -1,0 +1,41 @@
+label {
+  display: block;
+  font-size: 8px;
+}
+label:last-child {
+  margin-bottom: 0;
+}
+
+input {
+  padding: 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid var(--light-grey-color);
+  border-radius: 5px;
+  font-size: 10px;
+  width: 50%;
+}
+input:read-only {
+  color: rgba(0, 0, 0, 0.3);
+}
+input.error {
+  border: 1px solid var(--red-color);
+}
+
+textarea {
+  display: block;
+  padding: 5px 10px;
+  width: 100%;
+  height: 55px;
+  resize: none;
+  margin-top: 5px;
+  border: 1px solid var(--light-grey-color);
+  border-radius: 5px;
+  font-size: 10px;
+}
+textarea:read-only {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/*# sourceMappingURL=TextField.module.css.map */
